@@ -189,4 +189,8 @@ $ chmod +x post-commit
 . 그냥 그대로 link:https://gist.github.com[] 에 업로드
 
 == 참고문헌
+* link:http://asciidoc.org[Asciidoc]
+* link:asciidoctor.org[Asciidoctor]
 * link:https://github.com/ihoneymon/write-article-with-asciidoc[Github: Asciidoc 으로 전자책 쓰기]
+* link:https://github.com/ihoneymon/write-article-with-asciidoc-and-git/blob/master/index.adoc['Asciidoc'과 'git' 으로 글쓰기!]
+* link:http://java.ihoney.pe.kr/430[asciidoctor 사용법/한글깨짐 처리]
