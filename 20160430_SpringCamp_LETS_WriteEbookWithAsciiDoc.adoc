@@ -1,4 +1,4 @@
-= AsciiDoc 으로 전자책 쓰기 - SpringCamp 2016 LETS
+= Asciidoc 으로 전자책 쓰기 - SpringCamp 2016 LETS
 honeymon <ihoneymon@gmail.com>
 v0.1, 05-04-2016
 :doctype: book
@@ -163,23 +163,30 @@ ____
 == 내 작성방법
 . 글을 쓰기 위한 기본 구성 작성
 . 깃 커밋훅 설정: `.git/hooks`
++
 [source]
 .post-commit
 ----
 #!/usr/bin/env bash
 
-./build.sh <1>
+./build.sh  # <1>
 ----
 <1> `git init` 을 한 감시지점을 기준으로 함
++
 
 .. `post-commit` 실행권한 줘야함
++
 [source]
 ----
 $ chmod +x post-commit
 ----
++
 
 . `asciidoctor` 를 활용
-  . html
-  . pdf
-  . epub
+.. html
+.. pdf
+.. epub
 . 그냥 그대로 link:https://gist.github.com[] 에 업로드
+
+== 참고문헌
+* link:https://github.com/ihoneymon/write-article-with-asciidoc[Github: Asciidoc 으로 전자책 쓰기]
