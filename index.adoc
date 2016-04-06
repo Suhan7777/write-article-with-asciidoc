@@ -1,0 +1,18 @@
+= Asciidoc 으로 전자책 쓰기 =
+김지헌 <ihoneymon@gmail.com>
+v0.0.1, 05-04-2016: 뼈대 잡는 중
+:doctype: book
+:toc: left
+:toclevels: 4
+:source-highlighter: prettify
+:regression: 회귀
+
+//===========================================================================
+
+include::about-the-author.adoc[]
+include::preface.adoc[]
+include::chap01.adoc[]
+include::chap02.adoc[]
+
+
+//===========================================================================

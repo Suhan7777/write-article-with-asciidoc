@@ -1,0 +1,185 @@
+= AsciiDoc 으로 전자책 쓰기 - SpringCamp 2016 LETS
+honeymon <ihoneymon@gmail.com>
+v0.1, 05-04-2016
+:doctype: book
+:toc: left
+:toclevels: 4
+:asciidoc: 아스키독
+// 위치변환자placeholder 를 정의할 수 있다.
+
+***
+== 글쓰기의 시작
+. 개발자의 글쓰기
+. 내가 배운 것들을 기록하는 것부터 시작
+. 스프링노트에 작성하기 시작
+. 블로그에 옮겨가고
+. 마크다운으로 작성하고
+. 번역을 시도하면서 책의 형태로 작성이 가능한 asciidoc 을 알게되어 사용방법을 가볍게 살펴보고 막무가내로 사용하기 시작
+
+***
+== {asciidoc} 이란?
+* link:http://asciidoc.org/[`http://asciidoc.org/`]
+[QUOTES]
+_____
+Text based document generation
+_____
+
+다양한 문서형태(document, article, book, ebooks, slideshows, web page, man pages and blog)로 변환이 가능한 문법에 맞춰 일정한 형식으로 작성한 텍스트 문서다. AsciiDoc 자체를 쓰기보다는 link:http://asciidoctor.org/[AsciiDoctor] 를 쓰는 것이 더 괜찮은 편이다.
+
+AsciiDoctor 를 사용하기 위해서는 Ruby, RubyGem 이 설치되어 있어야 한다.
+
+***
+== {asciidoc} 문법 및 렌더링
+asciidoc의 기본적인 사용법은 link:http://asciidoc.org/userguide.html[{asciidoc} 사용자 가이드]를 살펴보기 바란다. 기본적인 문법을 익히는데 그리 어려움은 없을 것이다.
+
+=== 목차index 구성
+책을 쓰기 위한 목차를 구성한다. 다음과 같은 형식을 띈다.
+
+.index.adoc
+[source]
+----
+= Asciidoc 으로 전자책 쓰기 =
+김지헌 <ihoneymon@gmail.com>
+v0.0.1, 05-04-2016: 뼈대 잡는 중
+:doctype: book
+:toc: left
+:toclevels: 4
+:source-highlighter: prettify
+:regression: 회귀
+
+//===========================================================================
+
+include::about-the-author.adoc[]
+include::preface.adoc[]
+include::chap01.adoc[]
+include::chap02.adoc[]
+
+
+//===========================================================================
+----
+
+[source]
+----
+.
+├── index.adoc
+├── about-the-author.adoc
+├── chap01.adoc
+├── chap02.adoc
+└── preface.adoc
+----
+
+index.adoc 과 동일한 위치상에 파일들을 만든 후에 `include::파일명` 을 등록하면 asciidoc 으로 빌드시 적용된다. 이후 본문에서는 `<<chap01>>`, `<<chap02>>` 라고 기재하면 각 문서에 대한 앵커가 등록된다.
+
+
+=== 코드code
+기술관련한 글을 쓰면 코드를 설명해야하는 경우가 많습니다. 이때 사용할 수 있도록 코드 하이라이트를 지원을 합니다.
+
+[source]
+----
+  [source,java]
+  .HelloWorld.java
+  ----
+  public class HelloWorld {
+    public static void main(String[] args) {
+      System.out.println("Hello world!");
+    }
+  }
+  ----
+----
+
+[source,java]
+.HelloWorld.java
+----
+public class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println("Hello world!");
+  }
+}
+----
+
+=== 알아둘 점 `NOTE` , 유용한 점 `TIP` , 주석 `QUOTES`
+
+==== 알아둘 점 `NOTE`
+글을 쓰다가 잊지말아야할 중요한 점을 전달할 때 사용한다.
+[source]
+----
+[NOTE]
+====
+`NOTE` style is this.
+====
+----
+
+
+[NOTE]
+====
+`NOTE` style is this.
+====
+
+==== 활용방안 `TIP`
+글을 쓰다가 관련된 지식이나 경험을 전달할 때 사용한다.
+[source]
+----
+[TIP]
+====
+`TIP` style is this.
+====
+----
+[TIP]
+====
+`TIP` style is this.
+====
+
+==== 주석 `QUOTES`
+글과 관련된 개인적인 생각, 견해를 표현할 때 사용한다. 혹은 참고문헌.
+[source]
+----
+[QUOTES]
+____
+`QUOTES` style is this.
+____
+----
+
+[QUOTES]
+____
+`QUOTES` style is this.
+____
+
+***
+== {asciidoc} 활용
+
+=== 문서작성
+기본 텍스트 에디터로 얼마든지 작성이 가능하다. 깃헙에서 제공하는 아톰의 경우에는 asciidoctor 뷰어를 제공한다.
+기본적인 문법만 익혀두면 나중에 자유롭게 글을 작성할 수 있다.
+
+=== 지식공유
+* Gist at Github
+** gist에 짧은 문서를 등록하는 목적으로 사용한다.
+** 예: link:https://gist.github.com/ihoneymon[]
+
+* 집필
+** {asciidoc} 본연의 목적중 하나인 책을 쓰는데 적합하다.
+** 책 구성에 따라 각 장을 구분지어 작성하고 그에 필요한 구성을 하고 쉽게 살펴볼 수 있다.
+
+== 내 작성방법
+. 글을 쓰기 위한 기본 구성 작성
+. 깃 커밋훅 설정: `.git/hooks`
+[source]
+.post-commit
+----
+#!/usr/bin/env bash
+
+./build.sh <1>
+----
+<1> `git init` 을 한 감시지점을 기준으로 함
+
+.. `post-commit` 실행권한 줘야함
+[source]
+----
+$ chmod +x post-commit
+----
+
+. `asciidoctor` 를 활용
+  . html
+  . pdf
+  . epub
+. 그냥 그대로 link:https://gist.github.com[] 에 업로드

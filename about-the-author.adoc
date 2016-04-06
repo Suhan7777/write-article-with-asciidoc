@@ -1,0 +1,5 @@
+[[about-author, 저자 소개]]
+== 저자 소개
+:author: 허니몬 link:http://honeymon.io[]
+
+{author}이라는 이름으로 활동하고 있는 평범한 자바개발자.
